@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .title {
+        background-color: palevioletred;
+        width: 200px;
+    }
+</style>
+
+<body>
+
+    <!-- 引入react核心库 -->
+    <script src="./js/react.development.js"></script>
+    <!-- 引入react-dom用于支持react操作DOM -->
+    <script src="./js/react-dom.development.js"></script>
+    <!-- 引入babel，用于将JSX转为js -->
+    <script src="./js/babel.min.js"></script>
+    <script type="text/babel">   // 此处一定要写babel，不写就是JS
+        //1.创建虚拟DOM
+        const myId = 'aini'
+        const myData = 'Hello,react'
+        const VDOM = (
+            <div>
+                <h2 className="title" id={myId.toLowerCase()}>
+                    <span style={{ color: 'yellow', fontSize: '29px' }}>{myData.toLowerCase()}</span>
+                </h2>
+                <h2 className="title" id={myId.toUpperCase()}>
+                    <span style={{ color: 'yellow', fontSize: '29px' }}>{myData.toUpperCase()}</span>
+                </h2>
+                <input type="text"></input>
+                <input type="text" />
+                <good>123</good>
+
+            </div>
+        )
+        // 此处一定不要写引号，因为不是字符串
+        //2.渲染虚拟DOM到页面
+        // ReactDOM.render(虚拟DOM,容器)
+        ReactDOM.render(VDOM, document.getElementById('test'))
+        console.log('虚拟dom', VDOM);
+
+        //JSX语法规则
+        // 定义虚拟DOM时，不要写引号
+        //标签中混入JS表达式要用{}
+        //样式的类名指定，不要用class，要用className
+    </script>
+</body>
+
+</html>
